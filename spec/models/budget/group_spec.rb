@@ -1,4 +1,4 @@
-require 'rails_helper'
+require "rails_helper"
 
 describe Budget::Group do
 
@@ -8,15 +8,15 @@ describe Budget::Group do
 
   describe "name" do
     before do
-      create(:budget_group, budget: budget, name: 'object name')
+      create(:budget_group, budget: budget, name: "object name")
     end
 
     it "can be repeatead in other budget's groups" do
-      expect(build(:budget_group, budget: create(:budget), name: 'object name')).to be_valid
+      expect(build(:budget_group, budget: create(:budget), name: "object name")).to be_valid
     end
 
     it "must be unique among all budget's groups" do
-      expect(build(:budget_group, budget: budget, name: 'object name')).not_to be_valid
+      expect(build(:budget_group, budget: budget, name: "object name")).not_to be_valid
     end
   end
 
