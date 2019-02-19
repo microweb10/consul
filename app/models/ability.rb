@@ -21,4 +21,9 @@ class Ability
     end
   end
 
+  def method
+  end
+  def method2
+  end
+
 end
