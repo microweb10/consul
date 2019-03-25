@@ -49,7 +49,8 @@ class Legislation::Process < ActiveRecord::Base
   validates :background_color, format: { allow_blank: true, with: CSS_HEX_COLOR }
   validates :font_color, format: { allow_blank: true, with: CSS_HEX_COLOR }
 
-  scope :open, -> { where("start_date <= ? and end_date >= ?", Date.current, Date.current) }
+  scope :open, -> { where("start_date <= ? and end_date >= ?", Date.current, Date.current)
+                    .order('id DESC') }
   scope :active, -> { where("end_date >= ?", Date.current) }
   scope :past, -> { where("end_date < ?", Date.current) }
 
